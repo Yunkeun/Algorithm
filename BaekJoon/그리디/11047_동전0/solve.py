@@ -1,12 +1,14 @@
 N, K = map(int, input().split(' '))
-coins = []
-cnt = 0
+coin_types = []
+# changes minimum
 for i in range(N):
     coin = int(input())
-    coins.append(coin)
-coins.sort(reverse=True)
-for coin in coins:
+    coin_types.append(coin)
+
+cnt = 0
+# From the biggest type to smallest type, 
+coin_types.sort(reverse=True)
+for coin in coin_types:
     cnt += K // coin
     K %= coin
 print(cnt)
-    
