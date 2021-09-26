@@ -15,7 +15,11 @@
   - [10809 알파벳 찾기](https://www.acmicpc.net/problem/10809)
   - [2675 문자열 반복](https://www.acmicpc.net/problem/2675)
 - 그리디
-
+  - [11047_동전0](https://www.acmicpc.net/problem/11047)
+  - [11399_ATM](https://www.acmicpc.net/problem/11399)
+  - [1931_회의실배정](https://www.acmicpc.net/problem/1931)
+  - [2839_설탕배달](https://www.acmicpc.net/problem/2839)
+  - 
 <br>
 
 
