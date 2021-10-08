@@ -21,7 +21,7 @@
   - [2839_설탕배달](https://www.acmicpc.net/problem/2839)
   - [1026_보물](https://www.acmicpc.net/problem/1026)
   - [1541_잃어버린괄호](https://www.acmicpc.net/problem/1541)
-
+  - [5585 거스름돈](https://www.acmicpc.net/problem/5585)
 <br>
 
 
