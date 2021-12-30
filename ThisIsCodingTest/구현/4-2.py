@@ -4,7 +4,6 @@ m, n = 59, 59
 hour, minute, second = 0, 0, 0
 count = 0
 while (not(hour == h and minute == m and second == n)):
-    print(hour, minute, second)
     if (second == 60):
         minute += 1
         second = 0
@@ -12,7 +11,6 @@ while (not(hour == h and minute == m and second == n)):
         hour += 1
         minute = 0
     if (str(second).find("3") != -1 or str(minute).find("3") != -1 or str(hour).find("3") != -1):
-        print("inside : ", hour, minute, second)
         count += 1
     second += 1
 print(count)
