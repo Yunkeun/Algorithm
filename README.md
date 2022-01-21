@@ -1,4 +1,1 @@
 # Algorithm
-## CodeUp
-## Baekjoon
-## Programmers
