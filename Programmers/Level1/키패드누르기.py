@@ -1,57 +1,44 @@
+def get_distance(current_position, to_press_position):
+    if current_position < 4 and to_press_position > 3:
+        return abs(current_position - (to_press_position - 4)) + 1
+    if current_position > 3 and to_press_position < 4:
+        return abs((current_position - 4) - to_press_position) + 1
+    return abs(current_position - to_press_position)
+
 def solution(numbers, hand):
-    answer = ''
-    left = 10
-    right = 12
-    distLR = [0,0]
-    dist = [0,0]
-    n = 0
-    for i, num in enumerate(numbers):
-        if num % 3 == 1:
-            left = num
-            answer += 'L'
-        elif num % 3 == 0 and num != 0:
-            right = num
-            answer += 'R'
+    # setting
+    answer = []
+    left_possible_numbers = [1, 4, 7, '*', 2, 5, 8, 0]
+    right_possible_numbers = [3, 6, 9, '#', 2, 5, 8, 0]
+    current_left_position = 3
+    current_right_position = 3
+    for number in numbers:
+        if number in left_possible_numbers:
+            position = left_possible_numbers.index(number)
         else:
-            if num == 0:
-                n = 11
-            else:
-                n = num
-            for j, c in enumerate(answer):
-                if c == 'L':
-                    if numbers[j] == 0:
-                        left = 11
-                    else:
-                        left = numbers[j]
-                else:
-                    if numbers[j] == 0:
-                        right = 11
-                    else:
-                        right = numbers[j]
-            distLR[0] = abs(n - left)
-            distLR[1] = abs(n - right)
-            for i, d in enumerate(distLR):
-                if d == 1 or d == 3:
-                    dist[i] = 1
-                elif d == 2 or d == 4:
-                    dist[i] = 2
-                elif d == 5 or d == 7:
-                    dist[i] = 5
-                elif d == 6:
-                    dist[i] = 4
-                elif d == 9:
-                    dist[i] = 9
-                elif d == 8 or d == 10:
-                    dist[i] = 17
-                else:
-                    dist[i] = 0
-            if dist[0] < dist[1]:
-                answer += 'L'
-            elif dist[0] > dist[1]:
-                answer += 'R'
+            position = right_possible_numbers.index(number)
+        if position > 3:
+            left_distance = get_distance(current_left_position, position)
+            right_distance = get_distance(current_right_position, position)
+            if left_distance > right_distance:
+                answer.append("R")
+                current_right_position = position
+            elif left_distance < right_distance:
+                answer.append("L")
+                current_left_position = position
             else:
                 if hand == "right":
-                    answer += 'R'
+                    answer.append("R")
+                    current_right_position = position
                 else:
-                    answer += 'L'
-    return answer
+                    answer.append("L")
+                    current_left_position = position
+            continue
+        if number in left_possible_numbers:
+            answer.append("L")
+            current_left_position = position
+            continue
+        if number in right_possible_numbers:
+            answer.append("R")
+            current_right_position = position
+    return ''.join(answer)
